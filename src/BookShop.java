@@ -14,7 +14,7 @@ public class BookShop {
 
  */
 
-    public void insertDummtData(String[][] books) {
+    public void insertDummyData(String[][] books) {
         String insertQuery = "INSERT INTO BOOKSHOP (NAME, AUTHOR_NAME, PRICE, GENRE,PUBLISHED_DATE) VALUES (?, ?, ?, ?, ?)";
 
         try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);

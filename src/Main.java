@@ -25,7 +25,7 @@ public class Main {
 
         };
         BookShop bookShop = new BookShop();
-        bookShop.insertDummtData(books);
+        bookShop.insertDummyData(books);
 
     }
 }
