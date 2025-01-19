@@ -8,10 +8,10 @@ public class Main {
                 {"Bob Brown", "24", "bob.brown@example.com"}
         };
        // InsertStudentOracle oracle = new InsertStudentOracle();
-        //oracle.insertDummtData(students);
+        //oracle.insertDummyData(students);
 
         InsertStudentPostgrace postgrace = new InsertStudentPostgrace();
-        postgrace.insertDummtData(students);
+        postgrace.insertDummyData(students);
 
 
     }
