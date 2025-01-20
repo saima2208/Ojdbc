@@ -15,7 +15,7 @@ public class BookShop {
  */
 
     public void insertDummyData(String[][] books) {
-        String insertQuery = "INSERT INTO BOOKSHOP (NAME, AUTHOR_NAME, PRICE, GENRE,PUBLISHED_DATE) VALUES (?, ?, ?, ?, ?)";
+        String insertQuery = "INSERT INTO BOOKSHOP1 (NAME, AUTHOR_NAME, PRICE, GENRE,PUBLISH_DATE) VALUES (?, ?, ?, ?, ?)";
 
         try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement preparedStatement = connection.prepareStatement(insertQuery)) {

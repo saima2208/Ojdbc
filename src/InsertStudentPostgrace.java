@@ -3,10 +3,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class InsertStudentPostgrace {
-    private static final String URL = "jdbc:postgresql://localhost:5432/postgres";
-    private static final String USER = "postgres";
-    private static final String PASSWORD = "isdb62";
+public class InsertStudentPostgrace extends Oracle {
+
 
     public void insertDummtData(String[][] students) {
         String insertQuery = "INSERT INTO studentjdbc (name, age, email) VALUES (?, ?, ?)";

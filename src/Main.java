@@ -16,7 +16,7 @@ public class Main {
 
     }
 
- */
+
         String[][] books = {
                 {"MacBeth", "Shakespeare",  "500", "DRAMA","2000-06-6"},
                 {"Merchant of Vanice", "Shakespeare", "400","DRAMA", "1999-06-6"},
@@ -24,8 +24,19 @@ public class Main {
                 {"Doctor Faustus", "Christofer Marlow", "700","DRAMA", "2002-06-6"}
 
         };
+
+
+
+        String[][] books = {
+                {"All's Well That Ends Well",""}
+
+        };
         BookShop bookShop = new BookShop();
         bookShop.insertDummyData(books);
+
+ */
+        SelectStudentOracle selectStudent = new SelectStudentOracle();
+        selectStudent.selectAllStudents();
 
     }
 }
