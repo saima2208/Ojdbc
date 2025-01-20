@@ -2,12 +2,15 @@ package FruitShops;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import static oracle.sql.DATE.toLocalDate;
 
 public class ReadDatabase extends Oracle {
 
     public void selectAllData() {
+
         String selectQuery = "SELECT * FROM FRUITSHOP";
 
         try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
@@ -31,5 +34,38 @@ public class ReadDatabase extends Oracle {
             System.err.println("Error selecting date: " + e.getMessage());
         }
     }
+}
+
+         /*
+
+        //chatgpt
+
+        public List<String[]> selectAllData() {
+            List<String[]> data = new ArrayList<>();
+            String selectQuery = "SELECT * FROM FRUITSHOP";
+
+            try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+                 Statement statement = connection.createStatement();
+                 ResultSet resultSet = statement.executeQuery(selectQuery)) {
+
+                while (resultSet.next()) {
+                    String[] row = {
+                            String.valueOf(resultSet.getInt("ID")),
+                            resultSet.getString("NAME"),
+                            resultSet.getString("BUYER"),
+                            resultSet.getString("SELLER"),
+                            String.valueOf(resultSet.getInt("PRICE")),
+                            resultSet.getDate("BUY_DATE").toString(),
+                            resultSet.getDate("SELL_DATE").toString()
+                    };
+                    data.add(row);
+                }
+            } catch (SQLException e) {
+                System.err.println("Error reading data: " + e.getMessage());
+            }
+            return data;
+        }
 
 }
+
+          */
