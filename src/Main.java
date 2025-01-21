@@ -1,5 +1,32 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Scanner;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
+
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask for user input for student details
+        System.out.println("Enter student ID:");
+        int id = scanner.nextInt();  // Read student ID
+        scanner.nextLine();  // Consume the newline character left by nextInt()
+
+
+
+
+
+
+        Student student = new Student(2,"jhfg",30,"jhg@gmail.com");
+        student.setId(id);
+        StudentsUpdate studentsUpdate = new StudentsUpdate();
+        studentsUpdate.updateStudents(student);
+
+
+
+
 /*
         String[][] students = {
                 {"John Doe", "20", "john.doe@example.com"},
@@ -7,6 +34,7 @@ public class Main {
                 {"Alice Johnson", "23", "alice.johnson@example.com"},
                 {"Bob Brown", "24", "bob.brown@example.com"}
         };
+
        // InsertStudentOracle oracle = new InsertStudentOracle();
         //oracle.insertDummyData(students);
 
@@ -35,8 +63,10 @@ public class Main {
         bookShop.insertDummyData(books);
 
  */
-        SelectStudentOracle selectStudent = new SelectStudentOracle();
-        selectStudent.selectAllStudents();
+       // SelectStudentOracle selectStudent = new SelectStudentOracle();
+        //selectStudent.selectAllStudents();
+
+
 
     }
 }

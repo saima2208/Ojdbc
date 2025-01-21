@@ -10,5 +10,6 @@
     <orderEntry type="library" name="ojdbc11-23.6.0.24.10" level="project" />
     <orderEntry type="library" name="postgresql-42.7.5" level="project" />
     <orderEntry type="library" name="commons-csv-1.13.0" level="project" />
+    <orderEntry type="library" name="opencsv-5.10" level="project" />
   </component>
 </module>

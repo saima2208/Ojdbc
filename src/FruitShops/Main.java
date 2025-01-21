@@ -12,32 +12,27 @@ public class Main {
 
 
 
+         String[][]   csvFilePath = {{"C:\\Users\\Java Student PC-7\\Desktop\\JAVA\\Git\\Xml\\Fruit.csv"}};
 
-        //String   csvFilePath = "C:\\Users\\Java Student PC-7\\Desktop\\JAVA\\Git\\Xml\\Fruit.csv";//tsp
-        //String[][]   csvFilePath = {{"C:\\Users\\Java Student PC-7\\Desktop\\JAVA\\Git\\Xml\\Fruit.csv"}};
-        String[][]   csvFilePath = {{"C:\\Git\\OJDBC_Learn\\Fruit.csv"}};
-
-
-
-        ReadFile readFile = new ReadFile();
-       readFile.readCsvFile();
-           System.out.println("---------------------------------------------");
+        ReadFile readFile = null;
 
 
 
+        readFile = new ReadFile();
+        readFile.readCsvFile();
+        System.out.println("---------------------------------------------");
 
-       InsertData insertData = new InsertData();
+
+        InsertData insertData = new InsertData();
         insertData.insertDummyData(csvFilePath);
 
-            System.out.println("---------------------------------------------");
-
-
+        System.out.println("---------------------------------------------");
 
 
         ReadDatabase readDatabase = new ReadDatabase();
         readDatabase.selectAllData();
-           System.out.println("---------------------------------------------");
-           ModifyData modifyData = new ModifyData();
+        System.out.println("---------------------------------------------");
+        ModifyData modifyData = new ModifyData();
 
 
     /*
