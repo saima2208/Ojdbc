@@ -3,13 +3,13 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class InsertStudentPostgrace extends Oracle {
+public class InsertStudentPostgrace  {
 
-
+/*
     public void insertDummtData(String[][] students) {
         String insertQuery = "INSERT INTO studentjdbc (name, age, email) VALUES (?, ?, ?)";
 
-        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+        try (Connection connection = DriverManager.Oracle.getConnection(URL, USER, PASSWORD);
              PreparedStatement preparedStatement = connection.prepareStatement(insertQuery)) {
             for (String[] student : students) {
                 preparedStatement.setString(1, student[0]);
@@ -24,5 +24,7 @@ public class InsertStudentPostgrace extends Oracle {
             System.err.println("Error inserting data: " + e.getMessage());
         }
     }
+
+ */
 
 }

@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ReadFile {
-
+/*
     public void readCsvFile() throws FileNotFoundException {
         try {
             File myObj = new File("C:\\Users\\Java Student PC-7\\Desktop\\JAVA\\Git\\Xml\\Fruit.csv");//tsp
@@ -44,6 +44,8 @@ public class ReadFile {
         }
         return data;
     }
+
+ */
 }
 
-     */
+

@@ -7,8 +7,8 @@ import java.util.List;
 
 import static oracle.sql.DATE.toLocalDate;
 
-public class ReadDatabase extends Oracle {
-
+public class ReadDatabase  {
+/*
     public void selectAllData() {
 
         String selectQuery = "SELECT * FROM FRUITSHOP";
@@ -34,6 +34,8 @@ public class ReadDatabase extends Oracle {
             System.err.println("Error selecting date: " + e.getMessage());
         }
     }
+
+ */
 }
 
          /*
