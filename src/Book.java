@@ -1,7 +1,6 @@
 public class Book {
-    private    int id;
+    private int id;
     private String name;
-
     private String author;
     private double price;
     private boolean available;
@@ -48,20 +47,20 @@ public class Book {
         this.author = author;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
     public boolean isAvailable() {
         return available;
     }
 
     public void setAvailable(boolean available) {
         this.available = available;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     @Override

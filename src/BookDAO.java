@@ -11,12 +11,12 @@ public class BookDAO {
         return Oracle.getConnection();
     }
 
-    //Create: add book in the table
+    /*//Create: add book in the table
     public void addBook(Book book){
         String sql = "INSERT INTO BOOKS (name,author,price,available) VALUES (?,?,?,?)";
         try ( Connection con = Oracle.getConnection();
               PreparedStatement statement = con.prepareStatement(sql)) {
-            statement.setString(1, book.getName());
+            statement.setString(1, book.);
             statement.setString(2, book.getAuthor());
             statement.setDouble(3,book.getPrice());
             statement.setBoolean(4, book.isAvailable());
@@ -115,8 +115,9 @@ public class BookDAO {
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
-    }
-    }
+    }*/
+
+}
 
 
 
