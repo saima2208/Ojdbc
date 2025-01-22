@@ -22,7 +22,7 @@ public class Main {
         Student student = new Student(2,"jhfg",30,"jhg@gmail.com");
         student.setId(id);
         StudentsUpdate studentsUpdate = new StudentsUpdate();
-        studentsUpdate.updateStudents(student);
+      //  studentsUpdate.updateStudents(student);
 
 
 

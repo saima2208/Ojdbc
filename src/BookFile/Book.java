@@ -1,37 +1,34 @@
 package BookFile;
 
-import java.io.Reader;
+
 
 public class Book {
-    private    int id;
+    private int id;
     private String title;
-
     private String author;
     private double price;
-    private char available;
+    private int available;
 
     public Book() {
     }
 
-    public Book(String title, String author, double price, char available) {
+    public Book(int available) {
+        this.available = available;
+    }
+
+    public Book(String title, String author, double price, int available) {
         this.title = title;
         this.author = author;
         this.price = price;
         this.available = available;
     }
 
-    public Book(int id, String title, String author, double price, char available) {
+    public Book(int id, String title, String author, double price, int available) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.price = price;
         this.available = available;
-    }
-
-    public Book(int id, String title, String author, double price, Reader available) {
-    }
-
-    public Book(int id) {
     }
 
     public int getId() {
@@ -66,17 +63,13 @@ public class Book {
         this.price = price;
     }
 
-    public Reader getAvailable() {
-      return available;
+    public int getAvailable() {
+        return available;
     }
 
-    public void setAvailable(char available) {
+    public void setAvailable(int available) {
         this.available = available;
+
+        }
     }
 
-    @Override
-    public String toString() {
-        return "Book [ id = " + id + ", Name "+ title + ",Author " + author + ",Price " + price + ",Available " + available + "]" ;
-
-    }
-}

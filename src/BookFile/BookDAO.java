@@ -19,8 +19,9 @@ public class BookDAO {
             statement.setString(1, book.getTitle());
             statement.setString(2, book.getAuthor());
             statement.setDouble(3, book.getPrice());
+            statement.setInt(4,book.getAvailable());
 
-            statement.setCharacterStream(4, book.getAvailable());
+
 
 
             statement.executeUpdate();
@@ -45,8 +46,8 @@ public class BookDAO {
                         resultSet.getString("title"),
                         resultSet.getString("author"),
                         resultSet.getDouble("price"),
-                        //resultSet.getBoolean("available")
-                        resultSet.getCharacterStream("available"));
+                        resultSet.getInt("available"));
+
 
 
             }
@@ -69,7 +70,7 @@ public class BookDAO {
                 resultSet.getString("title"),
                 resultSet.getString("author"),
                 resultSet.getDouble("price"),
-                        resultSet.getCharacterStream("available"))
+                        resultSet.getInt("available")
                 ));
             }
 
@@ -88,7 +89,7 @@ public class BookDAO {
             statement.setString(1, book.getTitle());
             statement.setString(2, book.getAuthor());
             statement.setDouble(3, book.getPrice());
-            statement.setCharacterStream(4, book.getAvailable());
+            statement.setInt(4,book.getAvailable());
             statement.setInt(5, book.getId());
             int rowAffected = statement.executeUpdate();
             if (rowAffected > 0) {
@@ -121,6 +122,10 @@ public class BookDAO {
             throw new RuntimeException(ex);
         }
     }
+
+
+
+
 }
 
 
