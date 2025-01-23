@@ -87,13 +87,8 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", publishYear=" + publishYear +
-                ", page=" + page +
-                ", price=" + price +
-                ", available=" + available +
-                '}';
+      return
+        String.format("%-25s %-25s %8d%8d%8.2f%n",title,author,publishYear,page,price);
+
     }
 }

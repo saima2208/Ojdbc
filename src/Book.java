@@ -66,7 +66,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book [ id = " + id + ", Name "+ name + ",Author " + author + ",Price " + price + ",Available " + available + "]" ;
+        return "Book id = " + id + ", Name "+ name + ",Author " + author + ",Price " + price + ",Available " + available ;
 
     }
 

@@ -11,7 +11,12 @@ public class LibraryManagement {
     };
 
     static void listOFBook() {
-        System.out.println(Arrays.toString(books));
+        //System.out.println(Arrays.toString(books));
+
+        for (Book book: books) {
+            System.out.print(book.toString());
+        }
+
 
     }
 
@@ -70,32 +75,39 @@ public class LibraryManagement {
 
 
         Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("\nLibrary Management System - Main Menu");
+            System.out.println("1. List of books");
+            System.out.println("2. Borrow a book");
+            System.out.println("3. Return a book");
+            System.out.println("4. Terminate the program");
+            System.out.print("Please choose an option from menu ");
 
 
-        int choice = scanner.nextInt();
+            int choice = scanner.nextInt();
 
 
-
-        switch (choice) {
-
-
-            case 1:
-                listOFBook();
-                break;
-            case 2:
-                borrowedBook();
-                break;
-            case 3:
-                returnBook();
-                break;
-            case 4:
-                System.out.println("Terminating the program. Goodbye!");
-                scanner.close();
-                return; // Exit the program
-            default:
-                System.out.println("Invalid option! Please try again.");
+            switch (choice) {
 
 
+                case 1:
+                    listOFBook();
+                    break;
+                case 2:
+                    borrowedBook();
+                    break;
+                case 3:
+                    returnBook();
+                    break;
+                case 4:
+                    System.out.println("Terminating the program. Goodbye!");
+                    scanner.close();
+                    return; // Exit the program
+                default:
+                    System.out.println("Invalid option! Please try again.");
+
+
+            }
         }
 
 
