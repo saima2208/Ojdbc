@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 public class LibraryManagement {
     static Book[] books = {
-            new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925, 1000, 10.00, 1),
-            new Book("1984", "George Orwell", 1949, 328, 15.00, 1),
-            new Book("To Kill a Mockingbird", "Harper Lee", 1960, 281, 12.50, 0)
+            new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925, 1000, 10.00, true),
+            new Book("1984", "George Orwell", 1949, 328, 15.00, true),
+            new Book("To Kill a Mockingbird", "Harper Lee", 1960, 281, 12.50, false)
     };
 
     static void listOFBook() {
@@ -56,7 +56,7 @@ public class LibraryManagement {
 
 
                 if (book.isBorrowed()) {
-                    book.setBorrowed(false);
+                    book.setBorrowed(true);
                     System.out.println("You have successfully returned the book " + title);
                 } else {
                     System.out.println("This book was not returned ");
