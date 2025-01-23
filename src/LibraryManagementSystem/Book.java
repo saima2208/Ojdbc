@@ -6,19 +6,19 @@ public class Book {
     private int publishYear;
     private int page;
     private double price;
-    private int available;
+
     private boolean borrowed;
 
     public Book() {
     }
 
-    public Book(String title, String author, int publishYear, int page, double price, int available) {
+    public Book(String title, String author, int publishYear, int page, double price, boolean borrowed) {
         this.title = title;
         this.author = author;
         this.publishYear = publishYear;
         this.page = page;
         this.price = price;
-        this.available = available;
+        this.borrowed = borrowed;
     }
 
     public Book(String title, String author, int publishYear, int page, double price) {
@@ -69,13 +69,9 @@ public class Book {
         this.price = price;
     }
 
-    public int getAvailable() {
-        return available;
-    }
 
-    public void setAvailable(int available) {
-        this.available = available;
-    }
+
+
 
     public boolean isBorrowed() {
         return borrowed;
@@ -87,13 +83,8 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", publishYear=" + publishYear +
-                ", page=" + page +
-                ", price=" + price +
-                ", available=" + available +
-                '}';
+      return
+        String.format("%-25s %-25s %8d%8d%8.2f\t%b%n",title,author,publishYear,page,price,borrowed);
+
     }
 }
