@@ -1,110 +1,133 @@
-package bookfile;
+package BookFile;
+
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class BookDAO {
-
-    private Connection getConnection() throws SQLException {
-        return OracleConnection.getConnection();
+   /* private Connection getConnection() throws SQLException {
+        return Oracle.getConnection();
     }
 
-    // Create: Add a new book
+
+    //Create: add book in the table
     public void addBook(Book book) {
-        String sql = "INSERT INTO Books (title, author, price, available) VALUES (?, ?, ?, ?)";
-        try (Connection conn = getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, book.getTitle());
-            stmt.setString(2, book.getAuthor());
-            stmt.setDouble(3, book.getPrice());
-            stmt.setBoolean(4, book.isAvailable());
-            stmt.executeUpdate();
-            System.out.println("Book added successfully!");
+        String sql = "INSERT INTO BOOKS (title,author,price,available) VALUES (?,?,?,?)";
+        try (Connection con = Oracle.getConnection();
+             PreparedStatement statement = con.prepareStatement(sql)) {
+            statement.setString(1, book.getTitle());
+            statement.setString(2, book.getAuthor());
+            statement.setDouble(3, book.getPrice());
+            statement.setInt(4,book.getAvailable());
+
+
+
+
+            statement.executeUpdate();
+            System.out.println("Added book successfully");
+
         } catch (SQLException e) {
             System.err.println("Error " + e.getMessage());
         }
     }
 
-    // Read: Get a book by ID
-    public Book getBookById(int id) {
-        String sql = "SELECT * FROM Books WHERE id = ?";
-        try (Connection conn = getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, id);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
+    //Read: get information by id
+
+    public Book getElementById(int id) {
+        String sql = "SELECT * FROM BOOKS WHERE id = ?";
+        try (Connection con = Oracle.getConnection();
+             PreparedStatement statement = con.prepareStatement(sql)) {
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
                 return new Book(
-                        rs.getInt("id"),
-                        rs.getString("title"),
-                        rs.getString("author"),
-                        rs.getDouble("price"),
-                        rs.getBoolean("available")
-                );
+                        resultSet.getInt("id"),
+                        resultSet.getString("title"),
+                        resultSet.getString("author"),
+                        resultSet.getDouble("price"),
+                        resultSet.getInt("available"));
+
+
+
             }
         } catch (SQLException e) {
-            System.err.println("Error " + e.getMessage());
+            System.out.println("Error " + e.getMessage());
         }
         return null;
     }
 
-    // Read: Get all books
+    //Read:get all books
     public List<Book> getAllBooks() {
         List<Book> books = new ArrayList<>();
-        String sql = "SELECT * FROM Books";
-        try (Connection conn = getConnection();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
-            while (rs.next()) {
+        String sql = "SELECT * FROM BOOKS";
+        try (Connection con = Oracle.getConnection();
+             Statement statement = con.createStatement();
+             ResultSet resultSet = statement.executeQuery(sql)) {
+            while (resultSet.next()) {
                 books.add(new Book(
-                        rs.getInt("id"),
-                        rs.getString("title"),
-                        rs.getString("author"),
-                        rs.getDouble("price"),
-                        rs.getBoolean("available")
+                        resultSet.getInt("id"),
+                resultSet.getString("title"),
+                resultSet.getString("author"),
+                resultSet.getDouble("price"),
+                        resultSet.getInt("available")
                 ));
             }
+
         } catch (SQLException e) {
-            System.err.println("Error " + e.getMessage());
+            System.out.println("Error " + e.getMessage());
         }
+
         return books;
     }
 
-    // Update: Update a book's details
-    public void updateBook(Book book) {
-        String sql = "UPDATE Books SET title = ?, author = ?, price = ?, available = ? WHERE id = ?";
-        try (Connection conn = getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, book.getTitle());
-            stmt.setString(2, book.getAuthor());
-            stmt.setDouble(3, book.getPrice());
-            stmt.setBoolean(4, book.isAvailable());
-            stmt.setInt(5, book.getId());
-            int rowsAffected = stmt.executeUpdate();
-            if (rowsAffected > 0) {
-                System.out.println("Book updated successfully!");
+    //Update book's details
+    public void updateBooks(Book book) {
+        String sql = "UPDATE BOOKS SET title = ?,author =?,price =?,available = ? WHERE id = ?";
+        try (Connection con = Oracle.getConnection();
+             PreparedStatement statement = con.prepareStatement(sql)) {
+            statement.setString(1, book.getTitle());
+            statement.setString(2, book.getAuthor());
+            statement.setDouble(3, book.getPrice());
+            statement.setInt(4,book.getAvailable());
+            statement.setInt(5, book.getId());
+            int rowAffected = statement.executeUpdate();
+            if (rowAffected > 0) {
+                System.out.println("Book update successfully");
             } else {
-                System.out.println("No book found with the given ID.");
+                System.out.println("No book available for this id");
             }
+
         } catch (SQLException e) {
-            System.err.println("Error " + e.getMessage());
+            System.out.println("Error " + e.getMessage());
+
+        }
+
+    }
+
+    //Delete: delete a book by id
+
+    public void deleteBook(int id) {
+        String sql = "DELETE FROM BOOKS WHERE id = ?";
+        try (Connection con = Oracle.getConnection();
+             PreparedStatement statement = con.prepareStatement(sql)) {
+            statement.setInt(1, id);
+            int rowAffected = statement.executeUpdate();
+            if (rowAffected > 0) {
+                System.out.println("Book deleted successfully");
+            } else {
+                System.out.println("No book available for this id");
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
         }
     }
 
-    // Delete: Delete a book by ID
-    public void deleteBook(int id) {
-        String sql = "DELETE FROM Books WHERE id = ?";
-        try (Connection conn = getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, id);
-            int rowsAffected = stmt.executeUpdate();
-            if (rowsAffected > 0) {
-                System.out.println("Book deleted successfully!");
-            } else {
-                System.out.println("No book found with the given ID.");
-            }
-        } catch (SQLException e) {
-            System.err.println("Error " + e.getMessage());
-        }
-    }
+    */
+
+
+
+
 }
+
+

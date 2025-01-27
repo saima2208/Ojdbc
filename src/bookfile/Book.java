@@ -1,25 +1,29 @@
-package bookfile;
+package BookFile;
+
+
 
 public class Book {
-
-    private int id;
+  /*  private int id;
     private String title;
     private String author;
     private double price;
-    private boolean available;
+    private int available;
 
-    // Constructors
-   /* public Book() {
-    }*/
+    public Book() {
+    }
 
-    public Book(String title, String author, double price, boolean available) {
+    public Book(int available) {
+        this.available = available;
+    }
+
+    public Book(String title, String author, double price, int available) {
         this.title = title;
         this.author = author;
         this.price = price;
         this.available = available;
     }
 
-    public Book(int id, String title, String author, double price, boolean available) {
+    public Book(int id, String title, String author, double price, int available) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -27,7 +31,6 @@ public class Book {
         this.available = available;
     }
 
-    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -60,17 +63,15 @@ public class Book {
         this.price = price;
     }
 
-    public boolean isAvailable() {
+    public int getAvailable() {
         return available;
     }
 
-    public void setAvailable(boolean available) {
+    public void setAvailable(int available) {
         this.available = available;
+
+        }
+
+   */
     }
 
-    @Override
-    public String toString() {
-        return "Book [id=" + id + ", title=" + title + ", author=" + author + ", price=" + price + ", available="
-                + available + "]";
-    }
-}
